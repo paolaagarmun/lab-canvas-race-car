@@ -58,12 +58,12 @@ function startGame() {
   function animate(){
   window.requestAnimationFrame(animate)
   ctx.clearRect(0,0,canvas.width,canvas.height)
-  // ctx.fillStyle = 'purple'
-  // for (let roadblock of roadblocks){
-  //     ctx.fillRect(roadblock.x, roadblock.y +=(2*roadblock.speedModifier), roadblock.w, roadblock.h)
-  //     detectCollision(car, roadblock)
-  // }
-  // console.log(roadblocks)
+  ctx.fillStyle = 'purple'
+  for (let roadblock of roadblocks){
+      ctx.fillRect(roadblock.x, roadblock.y +=(2*roadblock.speedModifier), roadblock.w, roadblock.h)
+      detectCollision(car, roadblock)
+  }
+  console.log(roadblocks)
   ctx.drawImage(blueCar, car.x, car.y, car.w, car.h)
   document.querySelector('body p').innerHTML = pointcounter
   }
@@ -79,14 +79,14 @@ function startGame() {
           theCar.h + theCar.y > theObstacle.y) {
           console.log('collision')
           window.cancelAnimationFrame(int)
-          // window.location.reload()
+          window.location.reload()
       }
       // collision detected!
     }  
 
 }
 
-// const canvas = document.querySelector("canvas")
-// // canvas.width = window.innerWidth
-// // canvas.height = window.innerHeight
-// const ctx = canvas.getContext('2d')
+const canvas = document.querySelector("canvas")
+// canvas.width = window.innerWidth
+// canvas.height = window.innerHeight
+const ctx = canvas.getContext('2d')
